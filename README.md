@@ -3,7 +3,7 @@
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration)
 [![GitHub release](https://img.shields.io/github/release/ChristophCaina/ha-vvs-departure-card.svg)](https://github.com/ChristophCaina/vvs-departure-card/releases)
 
-Custom Lovelace Card für die [VVS Departures Integration](https://github.com/ChristophCaina/vvs-departures).
+Custom Lovelace Card für die [VVS Departures Integration](https://github.com/ChristophCaina/vvs_departures).
 
 Zeigt alle Abfahrten einer VVS/EFA-Haltestelle kompakt in einer Karte an — mit Verspätungsanzeige, Echtzeit-Status, Gleisinformation und Störungsmeldungen.
 
