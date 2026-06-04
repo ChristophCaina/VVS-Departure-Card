@@ -7,7 +7,8 @@ Custom Lovelace Card für die [VVS Departures Integration](https://github.com/Ch
 
 Zeigt alle Abfahrten einer VVS/EFA-Haltestelle kompakt in einer Karte an — mit Verspätungsanzeige, Echtzeit-Status, Gleisinformation und Störungsmeldungen.
 
-<img width="462" height="396" alt="grafik" src="https://github.com/user-attachments/assets/753c063e-04cb-437f-abb9-671c80c2026c" />
+<img width="464" height="424" alt="grafik" src="https://github.com/user-attachments/assets/e667dc25-9725-4ea9-8e8c-a276832715a4" />
+
 
 
 ## Features
