@@ -1,7 +1,7 @@
 # VVS Departure Card
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration)
-[![GitHub release](https://img.shields.io/github/release/ChristophCaina/ha-vvs-departure-card.svg)](https://github.com/ChristophCaina/vvs-departure-card/releases)
+[![GitHub release](https://img.shields.io/github/release/ChristophCaina/vvs-departure-card.svg)](https://github.com/ChristophCaina/vvs-departure-card/releases)
 
 Custom Lovelace Card für die [VVS Departures Integration](https://github.com/ChristophCaina/vvs_departures).
 
