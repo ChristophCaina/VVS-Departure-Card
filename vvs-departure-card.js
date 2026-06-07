@@ -312,6 +312,35 @@ class VVSDepartureCard extends HTMLElement {
     return "var(--success-color)";
   }
 
+  _motIcon(lineFull, line) {
+    // Mirror MOT detection from api.py _mot_from_line_full()
+    const p = (lineFull || "").toLowerCase().trim();
+    const l = (line || "").trim();
+    if (["schiff", "fähre", "fahre", "katamaran", "ferry"].some(k => p.includes(k)))
+      return "mdi:ferry";
+    if (p.startsWith("s-bahn") || p.startsWith("sbahn"))
+      return "mdi:train-variant";
+    if (p.startsWith("u-bahn") || p.startsWith("ubahn"))
+      return "mdi:subway-variant";
+    if (p.startsWith("stadtbahn"))
+      return "mdi:tram";
+    if (p.startsWith("straßenbahn") || p.startsWith("strassenbahn") || p.startsWith("tram"))
+      return "mdi:tram";
+    if (p.startsWith("nachtbus") || p.startsWith("nacht-bus"))
+      return "mdi:bus-clock";
+    if (p.startsWith("schnellbus") || p.startsWith("expressbus"))
+      return "mdi:bus-express";
+    if (p.startsWith("bus"))
+      return "mdi:bus";
+    if (["zug", "ice", "rb", "re ", "mex"].some(k => p.includes(k)))
+      return "mdi:train";
+    if (p.startsWith("seilbahn") || p.startsWith("luftseil"))
+      return "mdi:gondola";
+    if (l.match(/^S\d+$/)) return "mdi:train-variant";
+    if (l.match(/^U\d+$/)) return "mdi:subway-variant";
+    return "mdi:transit-connection-variant";
+  }
+
   _stopName() {
     if (this._config.title) return this._config.title;
     if (this._entities.length === 0) return "VVS Abfahrten";
@@ -348,7 +377,7 @@ class VVSDepartureCard extends HTMLElement {
       if (state.state === "unknown" || state.state === "unavailable") {
         return `<div class="departure-item">
           <div class="departure-row">
-            <ha-icon icon="mdi:train" style="color:var(--disabled-color)"></ha-icon>
+            <ha-icon icon="mdi:transit-connection-variant" style="color:var(--disabled-color)"></ha-icon>
             <span class="line-dest unavailable-text">Nicht verfügbar</span>
           </div>
         </div>`;
@@ -377,7 +406,7 @@ class VVSDepartureCard extends HTMLElement {
       return `
         <div class="departure-item" data-entity="${state.entity_id}">
           <div class="departure-row">
-            <ha-icon icon="mdi:train" style="color:${iconColor}"></ha-icon>
+            <ha-icon icon="${this._motIcon(attrs.line_full, attrs.line)}" style="color:${iconColor}"></ha-icon>
             <span class="line-dest">
               <span class="line-name">${line}</span>
               <span class="arrow">→</span>
@@ -509,7 +538,7 @@ class VVSDepartureCard extends HTMLElement {
       </style>
       <ha-card>
         <div class="card-header">
-          <ha-icon icon="mdi:train-variant"></ha-icon>
+          <ha-icon icon="mdi:bus-stop"></ha-icon>
           ${stopName}
         </div>
         <div class="departures">
